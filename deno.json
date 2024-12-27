@@ -1,0 +1,12 @@
+{
+  "tasks": {
+    "dev": "deno run --allow-read --allow-env --allow-sys src/main.ts",
+    "build": "deno compile --allow-read --allow-env --allow-sys --output bin/main src/main.ts",
+    "check": "deno check . "
+  },
+  "imports": {
+    "@clack/core": "npm:@clack/core@^0.4.0",
+    "chalk": "npm:chalk@^5.4.1",
+    "commander": "npm:commander@^12.1.0"
+  }
+}
