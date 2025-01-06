@@ -2,10 +2,7 @@
   "version": "4",
   "specifiers": {
     "jsr:@std/assert@*": "1.0.8",
-    "jsr:@std/internal@^1.0.5": "1.0.5",
-    "npm:@clack/core@0.4": "0.4.0",
-    "npm:chalk@^5.4.1": "5.4.1",
-    "npm:commander@^12.1.0": "12.1.0"
+    "jsr:@std/internal@^1.0.5": "1.0.5"
   },
   "jsr": {
     "@std/assert@1.0.8": {
@@ -18,29 +15,10 @@
       "integrity": "54a546004f769c1ac9e025abd15a76b6671ddc9687e2313b67376125650dc7ba"
     }
   },
-  "npm": {
-    "@clack/core@0.4.0": {
-      "integrity": "sha512-YJCYBsyJfNDaTbvDUVSJ3SgSuPrcujarRgkJ5NLjexDZKvaOiVVJvAQYx8lIgG0qRT8ff0fPgqyBCVivanIZ+A==",
-      "dependencies": [
-        "picocolors",
-        "sisteransi"
-      ]
-    },
-    "chalk@5.4.1": {
-      "integrity": "sha512-zgVZuo2WcZgfUEmsn6eO3kINexW8RAE4maiQ8QNs8CtpPCSyMiYsULR3HQYkm3w8FIA3SberyMJMSldGsW+U3w=="
-    },
-    "commander@12.1.0": {
-      "integrity": "sha512-Vw8qHK3bZM9y/P10u3Vib8o/DdkvA2OtPtZvD871QKjy74Wj1WSKFILMPRPSdUSx5RFK1arlJzEtA4PkFgnbuA=="
-    },
-    "picocolors@1.1.1": {
-      "integrity": "sha512-xceH2snhtb5M9liqDsmEw56le376mTZkEX/jEb/RxNFyegNul7eNslCXP9FDj/Lcu0X8KEyMceP2ntpaHrDEVA=="
-    },
-    "sisteransi@1.0.5": {
-      "integrity": "sha512-bLGGlR1QxBcynn2d5YmDX4MGjlZvy2MRBDRNHLJ8VI6l6+9FUiyTFNJ0IveOSP0bcXgVDPRcfGqA0pjaqUpfVg=="
-    }
-  },
   "remote": {
     "https://deno.land/std@0.161.0/fmt/colors.ts": "9e36a716611dcd2e4865adea9c4bec916b5c60caad4cdcdc630d4974e6bb8bd4",
+    "https://deno.land/std@0.167.0/encoding/base64.ts": "8605e018e49211efc767686f6f687827d7f5fd5217163e981d8d693105640d7a",
+    "https://deno.land/std@0.167.0/fmt/colors.ts": "03ad95e543d2808bc43c17a3dd29d25b43d0f16287fe562a0be89bf632454a12",
     "https://deno.land/x/cliffy@v0.25.4/_utils/distance.ts": "02af166952c7c358ac83beae397aa2fbca4ad630aecfcd38d92edb1ea429f004",
     "https://deno.land/x/cliffy@v0.25.4/command/_errors.ts": "4fa6e1fa7d363a6ba20c401970da4634bca5a5352ece7005accc706a57407ae3",
     "https://deno.land/x/cliffy@v0.25.4/command/_utils.ts": "833aa9152bd36a610860261a6c4a2a3be4c31dbc10c24d076e75d09a9fa50d39",
@@ -85,13 +63,17 @@
     "https://deno.land/x/cliffy@v0.25.4/table/layout.ts": "46bf10ae5430cf4fbb92f23d588230e9c6336edbdb154e5c9581290562b169f4",
     "https://deno.land/x/cliffy@v0.25.4/table/row.ts": "5f519ba7488d2ef76cbbf50527f10f7957bfd668ce5b9169abbc44ec88302645",
     "https://deno.land/x/cliffy@v0.25.4/table/table.ts": "ec204c9d08bb3ff1939c5ac7412a4c9ed7d00925d4fc92aff9bfe07bd269258d",
-    "https://deno.land/x/cliffy@v0.25.4/table/utils.ts": "187bb7dcbcfb16199a5d906113f584740901dfca1007400cba0df7dcd341bc29"
-  },
-  "workspace": {
-    "dependencies": [
-      "npm:@clack/core@0.4",
-      "npm:chalk@^5.4.1",
-      "npm:commander@^12.1.0"
-    ]
+    "https://deno.land/x/cliffy@v0.25.4/table/utils.ts": "187bb7dcbcfb16199a5d906113f584740901dfca1007400cba0df7dcd341bc29",
+    "https://deno.land/x/cliffy@v0.25.5/ansi/ansi_escapes.ts": "885f61f343223f27b8ec69cc138a54bea30542924eacd0f290cd84edcf691387",
+    "https://deno.land/x/cliffy@v0.25.5/ansi/colors.ts": "c3bcc64664ca1eaf4384f9bee9ecc953016332c2ddd8be37f1dd06d3c749ee82",
+    "https://deno.land/x/cliffy@v0.25.5/ansi/deps.ts": "dbcd92e7208a2ed0acdc2c2bbbbae9ff08c4578bde49192cb6a2a0a38f944be2",
+    "https://deno.land/x/cliffy@v0.25.5/table/border.ts": "2514abae4e4f51eda60a5f8c927ba24efd464a590027e900926b38f68e01253c",
+    "https://deno.land/x/cliffy@v0.25.5/table/cell.ts": "1d787d8006ac8302020d18ec39f8d7f1113612c20801b973e3839de9c3f8b7b3",
+    "https://deno.land/x/cliffy@v0.25.5/table/deps.ts": "9227982efb4ecdc04e3a7cecba6e966d98788c7298ade293e8bb54aa57d24181",
+    "https://deno.land/x/cliffy@v0.25.5/table/layout.ts": "46bf10ae5430cf4fbb92f23d588230e9c6336edbdb154e5c9581290562b169f4",
+    "https://deno.land/x/cliffy@v0.25.5/table/mod.ts": "e74f69f38810ee6139a71132783765feb94436a6619c07474ada45b465189834",
+    "https://deno.land/x/cliffy@v0.25.5/table/row.ts": "5f519ba7488d2ef76cbbf50527f10f7957bfd668ce5b9169abbc44ec88302645",
+    "https://deno.land/x/cliffy@v0.25.5/table/table.ts": "ec204c9d08bb3ff1939c5ac7412a4c9ed7d00925d4fc92aff9bfe07bd269258d",
+    "https://deno.land/x/cliffy@v0.25.5/table/utils.ts": "187bb7dcbcfb16199a5d906113f584740901dfca1007400cba0df7dcd341bc29"
   }
 }
