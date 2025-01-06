@@ -1,17 +1,12 @@
-import { Command } from "commander";
-import chalk from "chalk";
-const program = new Command();
+import { Command } from "https://deno.land/x/cliffy@v0.25.4/command/mod.ts";
+import { registerCommands } from "./commands/index.ts";
 
-const log = console.log;
-
-program
+const program = new Command()
   .name("Burro 🫏🌯")
-  .summary("A simple CLI example")
   .version("1.0.0")
-  .description("A simple CLI example")
-  .option("-n, --name <name>", "Your name")
-  .action((options) => {
-    log(chalk.green(`Hello, ${options.name || "World"}!`));
-  });
+  .description("A simple CLI example");
 
-program.parse(Deno.args);
+// Register commands from the commands folder
+registerCommands(program);
+
+await program.parse(Deno.args);
