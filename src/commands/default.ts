@@ -2,7 +2,7 @@ import { Command } from "https://deno.land/x/cliffy@v0.25.4/command/mod.ts";
 import { success } from "../utils/color.ts";
 
 export default new Command()
-  .default('cat')
+  .default("cat")
   .description("Say goodbye to someone")
   .arguments("[name:string]")
   .action((name) => {

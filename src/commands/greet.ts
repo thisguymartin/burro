@@ -13,7 +13,6 @@ export default new Command()
   .description("Greet someone")
   .option("-n, --name <name:string>", "Name to greet")
   .action(async (options) => {
-    
     const table: Table = Table.from([
       ["Baxter Herman", "Oct 1, 2020", "Harderwijk", "Slovenia"],
       ["Jescie Wolfe", "Dec 4, 2020", "Alto Hospicio", "Japan"],
