@@ -8,13 +8,13 @@ const program = new Command()
   .name("Burro 🫏🌯")
   .version("1.0.0")
   .description("AI powered burrito LLM evaluation CLI tool")
-  .action(() => {
+  .action(async () => {
     const db = new DatabaseService();
-    const initialRun = db.isInitialRun();
+    const initialRun = await db.isInitialRun();
 
-    if (initialRun) {
-      console.log(info(burroTitle));
-    }
+    // if (initialRun) {
+    //   console.log(info(burroTitle));
+    // }
   });
 
 registerCommands(program);

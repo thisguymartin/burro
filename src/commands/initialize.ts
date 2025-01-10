@@ -10,6 +10,8 @@ import * as mod from "node:crypto";
 import { DatabaseService } from "../services/database.ts";
 import { error } from "../utils/color.ts";
 import {
+  arrayBufferToBase64,
+  base64ToArrayBuffer,
   decrypt,
   encrypt,
   generateEncryptionKey,
@@ -35,17 +37,38 @@ export const SetNewOpenAIKey = new Command()
       console.log(error("Failed to get initial setup"));
       return;
     }
-    const [_id, _name, key, encryptionKey, secret, createdDate] = setup;
+    const [_id, _name, _dbKey, encryptionKey, secretKey] = setup;
 
-    console.log({ OPENAIKEY, key });
+    const encryptionKeyArrayBuffer = base64ToArrayBuffer(
+      encryptionKey as string,
+    );
+    const encryptionSecretArrayBuffer = base64ToArrayBuffer(
+      secretKey as string,
+    );
+    const cryptoKey = await crypto.subtle.importKey(
+      "raw",
+      encryptionKeyArrayBuffer,
+      { name: "AES-GCM", length: 256 },
+      true,
+      ["encrypt", "decrypt"],
+    );
 
-    const encrypkey = await generateEncryptionKey();
-    const randomKey = generateInitalizeVector();
-    const encrypted = await encrypt(OPENAIKEY, encrypkey, randomKey);
-    console.log({ encrypted });
+    const encryptionSecretUniArray = new Uint8Array(
+      encryptionSecretArrayBuffer,
+    );
+    const encrypted = await encrypt(
+      OPENAIKEY,
+      cryptoKey,
+      encryptionSecretUniArray,
+    );
 
-    const decrypted = await decrypt(encrypted, encrypkey, randomKey);
-    console.log({ decrypted });
+    const arrayBufferToBase64Encrypted = arrayBufferToBase64(encrypted);
+
+    const es = base64ToArrayBuffer(arrayBufferToBase64Encrypted);
+    const secretOpenAi = new Uint8Array(es);
+
+    // const decrypted = await decrypt(secretOpenAi, key3, iv);
+    // console.log({ secretOpenAi, decrypted });
 
     // save the key to the database using db.setOpenAiKey(encrypted);
     // db.setOpenAiKey(encrypted);

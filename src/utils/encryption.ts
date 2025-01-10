@@ -50,6 +50,27 @@ export const generateEncryptionKey = async () => {
   );
 };
 
+export const exportRawKey = async (key: CryptoKey) => {
+  const exportedKey = await crypto.subtle.exportKey("raw", key);
+  return exportedKey;
+};
+
 export const generateInitalizeVector = () => {
   return crypto.getRandomValues(new Uint8Array(12));
+};
+
+export const arrayBufferToBase64 = (buffer: ArrayBuffer): string => {
+  const uint8Array = new Uint8Array(buffer);
+  let binary = "";
+  uint8Array.forEach((byte) => binary += String.fromCharCode(byte));
+  return btoa(binary);
+};
+
+export const base64ToArrayBuffer = (base64: string): ArrayBuffer => {
+  const binaryString = atob(base64);
+  const bytes = new Uint8Array(binaryString.length);
+  for (let i = 0; i < binaryString.length; i++) {
+    bytes[i] = binaryString.charCodeAt(i);
+  }
+  return bytes.buffer;
 };

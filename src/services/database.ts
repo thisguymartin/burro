@@ -1,4 +1,11 @@
+// deno-lint-ignore-file
 import { DB } from "https://deno.land/x/sqlite@v3.9.1/mod.ts";
+import {
+  arrayBufferToBase64,
+  exportRawKey,
+  generateEncryptionKey,
+  generateInitalizeVector,
+} from "../utils/encryption.ts";
 
 export class DatabaseService {
   connection: DB | undefined;
@@ -45,7 +52,7 @@ export class DatabaseService {
     return record;
   }
 
-  isInitialRun() {
+  async isInitialRun() {
     this.getConnection();
     this.createTable();
     const setupRecord = this.connection?.query(
@@ -54,11 +61,28 @@ export class DatabaseService {
     const record = setupRecord ? setupRecord[0] : undefined;
 
     if (!record?.length) {
+      const encryption = await generateEncryptionKey();
+      const rawKey = await exportRawKey(encryption);
+      const randomUint8Array = generateInitalizeVector();
+
+      const encryptionBase64 = arrayBufferToBase64(rawKey);
+      const randomBase64 = arrayBufferToBase64(randomUint8Array);
+
+      console.log({
+        encryptionBase64,
+        randomBase64,
+      });
+
       const rn = Math.floor(Date.now() * Math.random()).toString();
-      this.connection?.query("INSERT INTO config (name, key) VALUES (?, ?)", [
-        "INITIAL_SETUP",
-        rn,
-      ]);
+      this.connection?.query(
+        "INSERT INTO config (name, key, encryptionKey, encryptionSecret) VALUES (?, ?, ?, ?)",
+        [
+          "INITIAL_SETUP",
+          rn,
+          encryptionBase64,
+          randomBase64,
+        ],
+      );
       return true;
     }
 
@@ -75,9 +99,7 @@ export class DatabaseService {
               name TEXT,
               key TEXT,
               encryptionKey TEXT,
-              secret TEXT,
-              created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-              updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+              encryptionSecret TEXT
             );
           `);
 
