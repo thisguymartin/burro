@@ -4,6 +4,7 @@
     "jsr:@std/assert@*": "1.0.8",
     "jsr:@std/internal@^1.0.5": "1.0.5",
     "npm:@evalkit/core@^0.0.0": "0.0.0",
+    "npm:@types/node@*": "22.5.4",
     "npm:autoevals@^0.0.113": "0.0.113_zod@3.24.1"
   },
   "jsr": {

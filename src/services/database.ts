@@ -17,24 +17,26 @@ export class DatabaseService {
     return this.connection;
   }
 
-  getOpenAiKey(){
+  getOpenAiKey() {
     this.getConnection();
-    const openAiRecord = this.connection?.query("SELECT * FROM config WHERE name = 'OPENAI'")
+    const openAiRecord = this.connection?.query(
+      "SELECT * FROM config WHERE name = 'OPENAI'",
+    );
     const record = openAiRecord ? openAiRecord[0] : undefined;
     return record;
   }
 
-  setOpenAiKey(key: string){
+  setOpenAiKey(key: string) {
     this.getConnection();
-      this.connection?.query("INSERT INTO config (name, key) VALUES (?, ?)", [
-        "OPENAI",
-        key,
-      ])
+    this.connection?.query("INSERT INTO config (name, key) VALUES (?, ?)", [
+      "OPENAI",
+      key,
+    ]);
 
-      console.log("OpenAI key set")
+    console.log("OpenAI key set");
   }
 
-  getInitailSetup(){
+  getInitailSetup() {
     this.getConnection();
     const setupRecord = this.connection?.query(
       "SELECT * FROM config WHERE name = 'INITIAL_SETUP'",
@@ -71,7 +73,11 @@ export class DatabaseService {
             CREATE TABLE IF NOT EXISTS config (
               id INTEGER PRIMARY KEY AUTOINCREMENT,
               name TEXT,
-              key TEXT
+              key TEXT,
+              encryptionKey TEXT,
+              secret TEXT,
+              created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+              updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
             );
           `);
 

@@ -4,7 +4,6 @@ import { DatabaseService } from "./services/database.ts";
 import { info } from "./utils/color.ts";
 import { burroTitle } from "./utils/logo.ts";
 
-
 const program = new Command()
   .name("Burro 🫏🌯")
   .version("1.0.0")
@@ -16,10 +15,6 @@ const program = new Command()
     if (initialRun) {
       console.log(info(burroTitle));
     }
-
-
-
-
   });
 
 registerCommands(program);
