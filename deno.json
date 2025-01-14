@@ -1,7 +1,11 @@
 {
   "tasks": {
-    "dev": "deno run --allow-read --allow-env --allow-sys src/main.ts",
-    "build": "deno compile --allow-read --allow-env --allow-sys --output bin/main src/main.ts",
+    "run": "deno run --allow-read --allow-net --allow-env --allow-write src/main.ts",
+    "build": "deno compile --allow-read --allow-net --allow-env --allow-write --output bin/main src/main.ts",
     "check": "deno check . "
+  },
+  "imports": {
+    "@evalkit/core": "npm:@evalkit/core@^0.0.0",
+    "autoevals": "npm:autoevals@^0.0.113"
   }
 }
