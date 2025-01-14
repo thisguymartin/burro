@@ -59,18 +59,66 @@ export const generateInitalizeVector = () => {
   return crypto.getRandomValues(new Uint8Array(12));
 };
 
+// Convert ArrayBuffer to Base64 string for storage
 export const arrayBufferToBase64 = (buffer: ArrayBuffer): string => {
-  const uint8Array = new Uint8Array(buffer);
-  let binary = "";
-  uint8Array.forEach((byte) => binary += String.fromCharCode(byte));
-  return btoa(binary);
+  const bytes = new Uint8Array(buffer);
+  const binString = String.fromCodePoint(...bytes);
+  return btoa(binString);
 };
 
+// Convert Base64 string back to ArrayBuffer
 export const base64ToArrayBuffer = (base64: string): ArrayBuffer => {
-  const binaryString = atob(base64);
-  const bytes = new Uint8Array(binaryString.length);
-  for (let i = 0; i < binaryString.length; i++) {
-    bytes[i] = binaryString.charCodeAt(i);
-  }
+  const binString = atob(base64);
+  const bytes = Uint8Array.from(binString, (char) => char.codePointAt(0)!);
   return bytes.buffer;
+};
+
+// Export encryption key to raw format
+export const exportEncryptionKey = async (
+  key: CryptoKey,
+): Promise<ArrayBuffer> => {
+  return await crypto.subtle.exportKey("raw", key);
+};
+
+// Serialize encryption key and IV to Base64 for storage
+export const serializeEncryptionData = async (
+  key: CryptoKey,
+  iv: Uint8Array,
+): Promise<{ keyBase64: string; ivBase64: string }> => {
+  // Export CryptoKey to raw format
+  const rawKey = await exportEncryptionKey(key);
+
+  // Convert both key and IV to Base64
+  return {
+    keyBase64: arrayBufferToBase64(rawKey),
+    ivBase64: arrayBufferToBase64(iv.buffer),
+  };
+};
+
+// Import encryption key from raw data
+export const importEncryptionKey = async (
+  rawKey: ArrayBuffer,
+): Promise<CryptoKey> => {
+  return await crypto.subtle.importKey(
+    "raw",
+    rawKey,
+    { name: "AES-GCM", length: 256 },
+    true,
+    ["encrypt", "decrypt"],
+  );
+};
+
+// Deserialize encryption key and IV from Base64 storage
+export const deserializeEncryptionData = async (
+  keyBase64: string,
+  ivBase64: string,
+): Promise<{ key: CryptoKey; iv: Uint8Array }> => {
+  // Convert Base64 back to ArrayBuffer
+  const rawKey = base64ToArrayBuffer(keyBase64);
+
+  // Import key and convert IV
+  const key = await importEncryptionKey(rawKey);
+  const iv = new Uint8Array(base64ToArrayBuffer(ivBase64));
+
+  return { key, iv };
 };
