@@ -1,3 +1,4 @@
 bin
 node_modules
 .env
+db/settings.db
