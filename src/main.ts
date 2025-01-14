@@ -7,6 +7,9 @@ import { burroTitle } from "./utils/logo.ts";
 const program = new Command()
   .name("Burro 🫏🌯")
   .version("1.0.0")
+  .meta("deno", Deno.version.deno)
+  .meta("v8", Deno.version.v8)
+  .meta("typescript", Deno.version.typescript)
   .description("AI powered burrito LLM evaluation CLI tool")
   .action(() => {
     const db = DatabaseService.getInstance();

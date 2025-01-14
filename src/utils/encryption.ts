@@ -34,7 +34,6 @@ export const decrypt = async (
   );
 
   const decryptedText = new TextDecoder().decode(decryptedData);
-  console.log("Decrypted Text:", decryptedText);
 
   return decryptedText;
 };

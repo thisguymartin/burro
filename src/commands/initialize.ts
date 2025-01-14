@@ -57,6 +57,6 @@ export const SetNewOpenAIKey = new Command()
 
       console.log(success("OpenAI API key has been encrypted and saved"));
     } catch (err) {
-      console.log(error(`Failed to set OpenAI key: ` ), err);
+      console.log(error(`Failed to set OpenAI key: `), err);
     }
   });

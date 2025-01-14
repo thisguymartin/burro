@@ -1,0 +1,17 @@
+[
+  {
+    "input": "Which country has the highest population?",
+    "output": "People's Republic of China",
+    "expected": "China"
+  },
+  {
+    "input": "What is the capital of France?",
+    "output": "The capital city of France is Paris",
+    "expected": "Paris"
+  },
+  {
+    "input": "Who wrote Romeo and Juliet?",
+    "output": "The famous playwright William Shakespeare wrote Romeo and Juliet",
+    "expected": "William Shakespeare"
+  }
+]
