@@ -10,7 +10,10 @@ export interface QAEvalItem {
 export interface QAEvalResult {
   name: string;
   score: number;
-  metetadata: Record<string, unknown>;
+  metetadata: {
+    rationale : string;
+    choice: string;
+  }
 }
 
 export class CloseCaseQA extends Evaluate {
@@ -18,10 +21,10 @@ export class CloseCaseQA extends Evaluate {
     const results: QAEvalResult[] = [];
     for await (const item of items) {
       const result = await ClosedQA({
-        input: item.input,
+        input: item.input, 
         criteria: item.criteria,
         item: item.output,
-      });
+      } as any);
       results.push(result as QAEvalResult);
     }
 

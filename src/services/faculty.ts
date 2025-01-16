@@ -7,9 +7,13 @@ export interface FactualityEvalItem {
   expected: string;
 }
 
-interface FactualityEvalResult extends FactualityEvalItem {
+interface FactualityEvalResult  {
+  name: string;
   score: number;
-  metadata: Record<string, unknown>;
+  metadata: {
+    rationale: string
+    choice: string
+  }
 }
 
 export class FactualityEval extends Evaluate {
@@ -19,9 +23,7 @@ export class FactualityEval extends Evaluate {
 
     results.forEach((result, index) => {
       console.log(`Item ${index + 1}:`);
-      console.log(`Input: ${result.input}`);
-      console.log(`Output: ${result.output}`);
-      console.log(`Expected: ${result.expected}`);
+      console.log(`Output: ${result.name}`);
       console.log(`Score: ${result.score}`);
       console.log(`Metadata: ${JSON.stringify(result.metadata, null, 2)}`);
       console.log("-----------------------------\n");
@@ -39,25 +41,16 @@ export class FactualityEval extends Evaluate {
     const results: FactualityEvalResult[] = [];
 
     for await (const item of items) {
-      const result = await this.evaluateSingle({ // Assuming evaluate is a static method
+      const result = await Factuality({
         input: item.input,
         output: item.output,
         expected: item.expected,
-      });
+      } as any);
+
 
       results.push(result as FactualityEvalResult);
     }
 
     return results;
-  }
-
-  async evaluateSingle(item: FactualityEvalItem): Promise<FactualityEvalResult> {
-    const result = await Factuality({
-      input: item.input,
-      output: item.output,
-      expected: item.expected,
-    });
-
-    return result;
   }
 }
