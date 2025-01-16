@@ -1,4 +1,4 @@
-import { Factuality } from "autoevals";
+import { Factuality, } from "autoevals";
 
 interface EvalItem {
   input: string;
@@ -35,16 +35,15 @@ export class FactualityEvaluator {
     const results: EvalResult[] = [];
 
     for await (const item of items) {
-      const result = await Factuality({
+      const result = await Factuality({ // Assuming evaluate is a static method
         input: item.input,
         output: item.output,
         expected: item.expected,
       });
-
       results.push({
         ...item,
-        score: result.score,
-        metadata: result,
+        score: result.score as number,
+        metadata: result || {},
       });
     }
 

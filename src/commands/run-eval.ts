@@ -1,5 +1,4 @@
 import { Command } from "https://deno.land/x/cliffy@v0.25.4/command/mod.ts";
-import { Factuality, JSONDiff, ValidJSON } from "autoevals";
 import { ApiKeyLoader } from "../services/openAi.ts";
 import { FactualityEvaluator } from "../services/faculty-evaluator.ts";
 
