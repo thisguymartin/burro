@@ -76,24 +76,24 @@ burro run-eval <evaluation-file>
 
 Advanced evaluation methods using LLMs as judges:
 
-🔜 **Battle**: Compare outputs from different models head-to-head
-🔜 **Humor**: Evaluate the humor and wit in model responses
-🔜 **Moderation**: Check content for safety and appropriateness
-🔜 **Security**: Assess responses for potential security vulnerabilities
-🔜 **Summarization**: Evaluate the quality and accuracy of text summaries
-🔜 **SQL**: Verify the correctness of generated SQL queries
-🔜 **Translation**: Assess translation quality across languages
-🔜 **Fine-tuned binary classifiers**: Specialized evaluations using custom-trained models
+- 🔜 **Battle**: Compare outputs from different models head-to-head
+- 🔜 **Humor**: Evaluate the humor and wit in model responses
+- 🔜 **Moderation**: Check content for safety and appropriateness
+- 🔜 **Security**: Assess responses for potential security vulnerabilities
+- 🔜 **Summarization**: Evaluate the quality and accuracy of text summaries
+- 🔜 **SQL**: Verify the correctness of generated SQL queries
+- 🔜 **Translation**: Assess translation quality across languages
+- 🔜 **Fine-tuned binary classifiers**: Specialized evaluations using custom-trained models
 
 #### Heuristic Evaluations
 
 Mathematical and algorithmic comparison methods:
 
-🔜 **Levenshtein distance**: Measure string similarity using edit distance
-🔜 **Exact match**: Check for perfect matches between outputs
-🔜 **Numeric difference**: Compare numerical values and tolerances
-🔜 **JSON diff**: Analyze structural differences in JSON outputs
-🔜 **Jaccard distance**: Calculate similarity between sets of tokens
+- 🔜 **Levenshtein distance**: Measure string similarity using edit distance
+- 🔜 **Exact match**: Check for perfect matches between outputs
+- 🔜 **Numeric difference**: Compare numerical values and tolerances
+- 🔜 **JSON diff**: Analyze structural differences in JSON outputs
+- 🔜 **Jaccard distance**: Calculate similarity between sets of tokens
 
 ### Current Evaluation Types
 
