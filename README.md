@@ -1,6 +1,5 @@
 # Burro 🫏
-<<<<<<< Updated upstream
-=======
+
 
 Burro is a command-line interface (CLI) tool built with Deno for evaluating Large Language Model (LLM) outputs. It provides a straightforward way to run different types of evaluations with secure API key management.
 
@@ -94,19 +93,4 @@ Example format:
 - Secure key generation
 - Encrypted SQLite storage
 
-## 📦 Dependencies
 
-- [cliffy](https://deno.land/x/cliffy) - Command-line framework
-- [sqlite](https://deno.land/x/sqlite) - Database operations
-- [autoevals](https://deno.land/x/autoevals) - Evaluation utilities
-
-## 🤝 Contributing
-
-Contributions are welcome! Please feel free to submit a Pull Request.
-
-Potential areas for contribution:
-- Additional evaluation types
-- Improved scoring mechanisms
-- Enhanced output formatting
-- Documentation improvements
->>>>>>> Stashed changes
