@@ -13,7 +13,6 @@ const program = new Command()
   .description("AI powered burrito LLM evaluation CLI tool")
   .action(() => {
     const db = DatabaseService.getInstance();
-    console.log(db.getAllSettings());
     if (db.getAllSettings().length == 0) {
       console.log(info(burroTitle));
       console.log(

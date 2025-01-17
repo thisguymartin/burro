@@ -1,0 +1,12 @@
+[
+  {
+    "input": "List the first three prime numbers in ascending order, separated by commas.",
+    "output": "2,3,5",
+    "criteria": "Numbers must be in correct order, separated by commas with no spaces"
+  },
+  {
+    "input": "What are the three states of matter, in alphabetical order?",
+    "output": "gas,liquid,solid",
+    "criteria": "States must be in alphabetical order, lowercase, separated by commas with no spaces"
+  }
+]
