@@ -1,12 +1,11 @@
 # Burro 🫏
 
-Burro is a command-line interface (CLI) tool built with Deno for evaluating
-Large Language Model (LLM) outputs. It provides a straightforward way to run
-different types of evaluations with secure API key management.
+Burro is a command-line interface (CLI) tool for evaluating Large Language Model (LLM) outputs. It provides a straightforward way to run different types of evaluations with secure API key management.
 
 ## 🚀 Features
 
 - Three specialized evaluation types:
+  - Answer correctness evaluation with context
   - Close-ended QA matching
   - Simple output-expected comparison
 - Secure OpenAI API key management
@@ -15,96 +14,9 @@ different types of evaluations with secure API key management.
 
 ## 📋 Prerequisites
 
-- [Deno](https://deno.land/) installed on your system
 - OpenAI API key
 
 ## 🛠️ Installation
-
-1. Clone the repository:
-
-```bash
-git clone <your-repository-url>
-cd burro
-```
-
-2. Ensure Deno is installed:
-
-```bash
-deno --version
-```
-
-## 🔧 Usage
-
-### Setting up API Keys
-
-```bash
-deno run --allow-read --allow-write --allow-env main.ts set-openai-key
-```
-
-### Running Evaluations
-
-```bash
-deno run --allow-read --allow-write --allow-env main.ts run-eval <evaluation-file>
-```
-
-## 📊 Evaluation Types
-
-### 1. Answer Correctness (answerCorrectness.json)
-
-Evaluates answers against provided context with specific criteria.
-
-Example format:
-
-```json
-{
-  "input": {
-    "context": "Tesla's Model 3 was first unveiled on March 31, 2016...",
-    "question": "When did Tesla start delivering the Model 3?"
-  },
-  "output": "July 2017",
-  "criteria": "Answer must be exactly 'July 2017' based on the provided context"
-}
-```
-
-### 2. Close QA (closeqa.json)
-
-Evaluates exact matching responses for close-ended questions.
-
-Example format:
-
-```json
-{
-  "input": "List the first three prime numbers in ascending order, separated by commas.",
-  "output": "2,3,5",
-  "criteria": "Numbers must be in correct order, separated by commas with no spaces"
-}
-```
-
-### 3. Simple Evals (evals.json)
-
-Compares model outputs against expected answers.
-
-Example format:
-
-```json
-{
-  "input": "What is the capital of France?",
-  "output": "The capital city of France is Paris",
-  "expected": "Paris"
-}
-```
-
-## 🔒 Security Features
-
-- AES encryption for API key storage
-- Secure key generation
-- Encrypted SQLite storage
-
-
-
-# Burro CLI Installation Guide
-
-## Installation
 
 ### MacOS - Apple Silicon (M1/M2/M3)
 ```bash
@@ -131,12 +43,92 @@ sudo curl -L "https://github.com/thisguymartin/burro/releases/download/latest/bu
 2. Rename it to `burro.exe`
 3. Move it to your desired location (e.g., `C:\Program Files\burro\burro.exe`)
 
-## Running Burro
+## 🔧 Usage
 
-After installation, simply run:
+### Setting up API Keys
 ```bash
-burro
+burro set-openai-key
 ```
+
+### Running Evaluations
+```bash
+burro run-eval <evaluation-file>
+```
+
+## 📊 Evaluation Types
+
+### ✅ Current Evaluation Types
+
+
+1. **Close QA** (closeqa.json) 
+   - Exact matching for close-ended questions
+   - Strict format validation
+   - Support for multiple correct answers
+
+2. **Simple Evals** (evals.json)
+   - Basic output vs expected comparisons
+   - Quick and efficient validation
+   - Flexible matching options
+
+### 🔜 Coming Soon
+
+#### LLM-as-a-Judge Evaluations
+
+Advanced evaluation methods using LLMs as judges:
+
+🔜 **Battle**: Compare outputs from different models head-to-head
+🔜 **Humor**: Evaluate the humor and wit in model responses
+🔜 **Moderation**: Check content for safety and appropriateness
+🔜 **Security**: Assess responses for potential security vulnerabilities
+🔜 **Summarization**: Evaluate the quality and accuracy of text summaries
+🔜 **SQL**: Verify the correctness of generated SQL queries
+🔜 **Translation**: Assess translation quality across languages
+🔜 **Fine-tuned binary classifiers**: Specialized evaluations using custom-trained models
+
+#### Heuristic Evaluations
+
+Mathematical and algorithmic comparison methods:
+
+🔜 **Levenshtein distance**: Measure string similarity using edit distance
+🔜 **Exact match**: Check for perfect matches between outputs
+🔜 **Numeric difference**: Compare numerical values and tolerances
+🔜 **JSON diff**: Analyze structural differences in JSON outputs
+🔜 **Jaccard distance**: Calculate similarity between sets of tokens
+
+### Current Evaluation Types
+
+
+### 1. Close QA (closeqa.json)
+
+Evaluates exact matching responses for close-ended questions.
+
+Example format:
+```json
+{
+  "input": "List the first three prime numbers in ascending order, separated by commas.",
+  "output": "2,3,5",
+  "criteria": "Numbers must be in correct order, separated by commas with no spaces"
+}
+```
+
+### 2. Simple Evals (evals.json)
+
+Compares model outputs against expected answers.
+
+Example format:
+```json
+{
+  "input": "What is the capital of France?",
+  "output": "The capital city of France is Paris",
+  "expected": "Paris"
+}
+```
+
+## 🔒 Security Features
+
+- AES encryption for API key storage
+- Secure key generation
+- Encrypted SQLite storage
 
 ## System Architecture Check
 
@@ -158,40 +150,6 @@ This will return:
 - `aarch64` or `arm64`: Use Linux ARM version
 - `x86_64`: Use Linux Intel version
 
-## Uninstallation Guide
-
-### MacOS & Linux
-1. Remove the executable:
-```bash
-sudo rm /usr/local/bin/burro
-```
-
-2. Verify removal:
-```bash
-which burro
-# Should return nothing if successfully removed
-```
-
-### Windows
-1. Delete the executable:
-   - Navigate to where you installed `burro.exe`
-   - Delete the file
-
-2. Remove from PATH (if added):
-   - Open System Properties (Win + Pause|Break)
-   - Click "Advanced system settings"
-   - Click "Environment Variables"
-   - Under "System variables" or "User variables", find "Path"
-   - Click "Edit"
-   - Remove the directory containing burro.exe
-   - Click "OK" to save changes
-
-3. Verify removal:
-```powershell
-where.exe burro
-# Should return nothing if successfully removed
-```
-
 ## Troubleshooting
 
 ### Permission Denied
@@ -209,3 +167,29 @@ If `burro` command is not found after installation:
 1. Verify the installation location is in your PATH
 2. Try restarting your terminal
 3. Verify the executable exists and has proper permissions
+
+## Uninstallation Guide
+
+### MacOS & Linux
+```bash
+sudo rm /usr/local/bin/burro
+
+# Verify removal
+which burro  # Should return nothing if successfully removed
+```
+
+### Windows
+1. Delete `burro.exe` from your installation location
+2. If added to PATH:
+   - Open System Properties (Win + Pause|Break)
+   - Click "Advanced system settings"
+   - Click "Environment Variables"
+   - Under "System variables" or "User variables", find "Path"
+   - Click "Edit"
+   - Remove the directory containing burro.exe
+   - Click "OK" to save changes
+
+Verify removal:
+```powershell
+where.exe burro  # Should return nothing if successfully removed
+```
