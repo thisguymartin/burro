@@ -1,0 +1,20 @@
+[
+  {
+    "input": "What is the value of Pi to 2 decimal places?",
+    "output": "3.14",
+    "expected": "3.14159",
+    "tolerance": 0.01
+  },
+  {
+    "input": "What is the speed of light in m/s?",
+    "output": "299792458",
+    "expected": "299792458",
+    "tolerance": 100
+  },
+  {
+    "input": "Calculate 25% of 200",
+    "output": "50",
+    "expected": "50",
+    "tolerance": 0.01
+  }
+]

@@ -10,8 +10,8 @@ export interface QAEvalItem {
 export interface QAEvalResult {
   name: string;
   score: number;
-  metetadata: {
-    rationale : string;
+  metadata: {
+    rationale: string;
     choice: string;
   }
 }

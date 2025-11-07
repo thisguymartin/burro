@@ -1,0 +1,14 @@
+[
+  {
+    "input": "Write a SQL query to find all users over age 18",
+    "output": "SELECT * FROM users WHERE age > 18;",
+    "expected": "SELECT * FROM users WHERE age > 18;",
+    "context": "Database schema: users(id, name, email, age)"
+  },
+  {
+    "input": "Create a query to get the top 5 products by sales",
+    "output": "SELECT product_name, SUM(quantity) as total_sales FROM sales GROUP BY product_name ORDER BY total_sales DESC LIMIT 5;",
+    "expected": "SELECT product_id, SUM(quantity) FROM sales GROUP BY product_id ORDER BY SUM(quantity) DESC LIMIT 5;",
+    "context": "Database schema: sales(id, product_id, product_name, quantity, price, sale_date)"
+  }
+]

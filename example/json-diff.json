@@ -1,0 +1,12 @@
+[
+  {
+    "input": "Convert this user data to JSON format: John Doe, age 30, email john@example.com",
+    "output": "{\"name\": \"John Doe\", \"age\": 30, \"email\": \"john@example.com\"}",
+    "expected": "{\"name\": \"John Doe\", \"age\": 30, \"email\": \"john@example.com\"}"
+  },
+  {
+    "input": "Create a JSON object for a product with id 123, name 'Widget', price 29.99",
+    "output": "{\"id\": 123, \"name\": \"Widget\", \"price\": 29.99, \"inStock\": true}",
+    "expected": "{\"id\": 123, \"name\": \"Widget\", \"price\": 29.99}"
+  }
+]
