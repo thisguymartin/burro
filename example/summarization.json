@@ -1,0 +1,12 @@
+[
+  {
+    "input": "Summarize this text",
+    "output": "The article discusses climate change impacts on polar regions and the urgent need for global action.",
+    "context": "Climate change is having profound effects on the polar regions of Earth. Rising temperatures are causing unprecedented melting of ice sheets in both Antarctica and Greenland. Scientists warn that if current trends continue, sea levels could rise significantly, affecting coastal communities worldwide. The Arctic is warming at twice the global average rate, leading to habitat loss for species like polar bears. International cooperation is essential to address these challenges and implement effective mitigation strategies."
+  },
+  {
+    "input": "Provide a brief summary",
+    "output": "New AI model achieves state-of-the-art performance on multiple benchmarks with reduced training time.",
+    "context": "Researchers at a leading university have developed a novel artificial intelligence model that achieves state-of-the-art results across multiple natural language processing tasks. The model uses a transformer-based architecture with innovative attention mechanisms that reduce computational requirements by 40% compared to previous approaches. In benchmark tests, the model outperformed existing solutions on question answering, text classification, and sentiment analysis tasks. The training time was reduced from several weeks to just days, making it more accessible for smaller research teams."
+  }
+]

@@ -1,0 +1,12 @@
+[
+  {
+    "input": "Write a haiku about technology",
+    "output": "Code flows like water\nBits and bytes dance in rhythm\nDigital zen speaks",
+    "expected": "Silicon pathways\nData streams through endless night\nMachines dream in code"
+  },
+  {
+    "input": "Explain quantum computing in simple terms",
+    "output": "Quantum computers use quantum bits or qubits that can be both 0 and 1 at the same time, allowing them to process multiple calculations simultaneously.",
+    "expected": "Unlike regular computers that use bits (0 or 1), quantum computers use qubits which can exist in multiple states at once, enabling parallel processing of complex problems."
+  }
+]

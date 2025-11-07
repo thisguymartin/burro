@@ -1,0 +1,17 @@
+[
+  {
+    "input": "Translate 'Hello, how are you?' to Spanish",
+    "output": "Hola, ¿cómo estás?",
+    "expected": "Hola, ¿cómo estás?"
+  },
+  {
+    "input": "Translate 'Good morning' to French",
+    "output": "Bonjour",
+    "expected": "Bonjour"
+  },
+  {
+    "input": "Translate 'Thank you very much' to Japanese",
+    "output": "どうもありがとうございます",
+    "expected": "ありがとうございます"
+  }
+]

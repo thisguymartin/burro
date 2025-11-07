@@ -1,0 +1,17 @@
+[
+  {
+    "input": "What is the capital of France?",
+    "output": "Paris is the capital",
+    "expected": "Paris"
+  },
+  {
+    "input": "Who wrote Hamlet?",
+    "output": "William Shakespear",
+    "expected": "William Shakespeare"
+  },
+  {
+    "input": "What is 2 + 2?",
+    "output": "The answer is 4",
+    "expected": "4"
+  }
+]

@@ -1,0 +1,17 @@
+[
+  {
+    "input": "List programming languages used for web development",
+    "output": "JavaScript TypeScript Python Ruby PHP Java",
+    "expected": "JavaScript Python Ruby PHP Go"
+  },
+  {
+    "input": "Name popular fruits",
+    "output": "apple banana orange grape strawberry",
+    "expected": "apple banana orange mango pineapple"
+  },
+  {
+    "input": "List primary colors",
+    "output": "red blue yellow",
+    "expected": "red blue yellow"
+  }
+]

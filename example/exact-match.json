@@ -1,0 +1,17 @@
+[
+  {
+    "input": "What is the ISO code for United States?",
+    "output": "US",
+    "expected": "US"
+  },
+  {
+    "input": "What is the chemical symbol for gold?",
+    "output": "Au",
+    "expected": "Au"
+  },
+  {
+    "input": "What is the file extension for JSON?",
+    "output": ".json",
+    "expected": ".json"
+  }
+]
