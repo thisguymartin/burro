@@ -7,6 +7,8 @@
 
 ## 🚀 Features
 
+> **📖 For detailed feature documentation, see [FEATURES.md](FEATURES.md)**
+
 ### Evaluation Methods
 
 **📊 Heuristic Evaluations** (No API key required)
@@ -487,9 +489,10 @@ example/
 
 ## 📚 Documentation
 
+- **[FEATURES.md](FEATURES.md)** - Complete feature documentation and technical details
 - **[SCENARIOS.md](SCENARIOS.md)** - Real-world use cases and examples
 - **[/example](example/)** - Sample evaluation files for all types
-- **README.md** - This file, comprehensive feature guide
+- **README.md** - This file, quick start guide and overview
 
 ## 🤝 Contributing
 
