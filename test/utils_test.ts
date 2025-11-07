@@ -17,8 +17,9 @@ Deno.test("Evaluate - parseFile", async (t) => {
     try {
       await evaluate.parseFile("non-existent-file.json");
       throw new Error("Should have thrown");
-    } catch (error) {
-      assertEquals(error.message.includes("Failed to evaluate from JSON"), true);
+    } catch (error: unknown) {
+      const err = error as Error;
+      assertEquals(err.message.includes("Failed to evaluate from JSON"), true);
     }
   });
 
@@ -30,8 +31,9 @@ Deno.test("Evaluate - parseFile", async (t) => {
     try {
       await evaluate.parseFile(tempFile);
       throw new Error("Should have thrown");
-    } catch (error) {
-      assertEquals(error.message.includes("Failed to evaluate from JSON"), true);
+    } catch (error: unknown) {
+      const err = error as Error;
+      assertEquals(err.message.includes("Failed to evaluate from JSON"), true);
     } finally {
       // Clean up
       try {

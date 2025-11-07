@@ -373,8 +373,9 @@ Deno.test("HeuristicEval - evaluateItems batch processing", async (t) => {
     try {
       await evaluator.evaluateItems(items, "unknown" as any);
       throw new Error("Should have thrown");
-    } catch (error) {
-      assertEquals(error.message.includes("Unknown evaluation type"), true);
+    } catch (error: unknown) {
+      const err = error as Error;
+      assertEquals(err.message.includes("Unknown evaluation type"), true);
     }
   });
 });
